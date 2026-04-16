@@ -75,13 +75,15 @@ img {
     transition: var(--transition);
 }
 
-.navbar.solid {
+.navbar.solid,
+.navbar.menu-open {
     background: var(--white);
     padding: 15px 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.navbar.solid .nav-links a {
+.navbar.solid .nav-links a,
+.navbar.menu-open .nav-links a {
     color: var(--black);
 }
 
@@ -189,6 +191,18 @@ img {
     border: none;
     color: inherit;
     cursor: pointer;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 999px;
+    z-index: 1002;
+}
+
+.mobile-toggle i {
+    width: 24px;
+    height: 24px;
 }
 
 /* HERO */
@@ -1072,29 +1086,35 @@ img {
     white-space: nowrap;
 }
 
-.navbar.solid .brand-wrapper {
+.navbar.solid .brand-wrapper,
+.navbar.menu-open .brand-wrapper {
     color: var(--black);
 }
 
-.navbar.solid .social-icon-link {
+.navbar.solid .social-icon-link,
+.navbar.menu-open .social-icon-link {
     border-color: rgba(0, 0, 0, 0.12);
     background: rgba(0, 0, 0, 0.02);
 }
 
-.navbar.solid .social-icon-link:hover {
+.navbar.solid .social-icon-link:hover,
+.navbar.menu-open .social-icon-link:hover {
     border-color: rgba(0, 0, 0, 0.24);
     background: rgba(0, 0, 0, 0.05);
 }
 
-.navbar.solid .brand-divider {
+.navbar.solid .brand-divider,
+.navbar.menu-open .brand-divider {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.navbar.solid .brand-title {
+.navbar.solid .brand-title,
+.navbar.menu-open .brand-title {
     color: #000000;
 }
 
-.navbar.solid .brand-subtext {
+.navbar.solid .brand-subtext,
+.navbar.menu-open .brand-subtext {
     color: #666666;
 }
 
@@ -1144,35 +1164,109 @@ img {
         grid-template-columns: 1fr;
         gap: 40px;
     }
+    .navbar,
+    .navbar.solid,
+    .navbar.menu-open {
+        padding: 12px 0;
+    }
+    .nav-container {
+        gap: 12px;
+        padding: 0 16px;
+    }
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 78px;
+        left: 16px;
+        right: 16px;
+        z-index: 1001;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 18px;
+        max-height: calc(100svh - 96px);
+        overflow-y: auto;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 24px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(18px);
+    }
+    .nav-links.is-open {
+        display: flex;
+    }
     .nav-links li {
-        margin: 15px 0;
+        margin: 0;
+        width: 100%;
     }
     .nav-icon-link {
         justify-content: center;
         padding: 10px;
     }
     .service-row.reverse { direction: ltr; }
-    .hero-content { margin-left: 5%; }
-    .nav-links { display: none; } /* Simplified for demo, can add JS mobile menu */
-    .mobile-toggle { display: block; }
+    .hero {
+        min-height: 100svh;
+        align-items: flex-end;
+        padding: 0 0 56px;
+    }
+    .hero-content {
+        margin: 0 5%;
+        max-width: none;
+    }
+    .hero h1 {
+        font-size: clamp(2.8rem, 15vw, 4.8rem);
+    }
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 28px;
+    }
+    .hero-btns {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .mobile-toggle { display: inline-flex; }
+    .nav-links a,
+    .navbar.solid .nav-links a,
+    .navbar.menu-open .nav-links a {
+        color: var(--black);
+        font-size: 1rem;
+    }
     .social-nav {
         justify-content: center;
         width: 100%;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        margin-top: 4px;
+        padding-top: 14px;
     }
     .social-badge-link {
         width: 100%;
         min-width: 0;
     }
+    .contact-btn {
+        width: 100%;
+        min-width: 0;
+    }
     .brand-title {
-        font-size: 1.2rem;
-        letter-spacing: 1.5px;
+        font-size: clamp(1rem, 5vw, 1.25rem);
+        letter-spacing: 1px;
     }
     .brand-subtext {
-        font-size: 0.65rem;
+        font-size: 0.58rem;
+        letter-spacing: 0.08em;
     }
     .brand-mark {
-        width: 42px;
-        height: 42px;
-        flex-basis: 42px;
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+    }
+    .brand-divider {
+        min-height: 34px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        text-align: left;
     }
 }
