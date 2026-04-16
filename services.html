@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | ZAYD Interior</title>
+    <!-- Font Awesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (untuk konsistensi) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS KHUSUS HALAMAN SERVICES (MENGADOPSI SCREENSHOT) */
+        :root {
+            --card-bg: #ffffff;
+            --accent-black: #000000;
+            --soft-gray: #f9f9f9;
+            --text-muted: #666666;
+            --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .services-page-header {
+            padding: 160px 0 80px;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .services-page-header .tagline {
+            color: #d4af37; /* Sedikit sentuhan gold untuk premium feel */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .services-page-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.2;
+        }
+
+        /* GRID SECTION */
+        .services-grid-container {
+            padding: 60px 0 120px;
+            background-color: var(--white);
+        }
+
+        .s-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .s-card {
+            background: var(--card-bg);
+            padding: 50px 40px;
+            border-radius: 24px; /* Sesuai screenshot */
+            border: 1px solid #eee;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+        }
+
+        .s-card:hover {
+            transform: translateY(-15px);
+            background: var(--accent-black);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .s-card i {
+            font-size: 2.5rem;
+            color: var(--accent-black);
+            margin-bottom: 30px;
+            transition: var(--transition-smooth);
+        }
+
+        .s-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            transition: var(--transition-smooth);
+        }
+
+        .s-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            transition: var(--transition-smooth);
+        }
+
+        .s-card .learn-more {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-black);
+            transition: var(--transition-smooth);
+        }
+
+        /* Hover states for card elements */
+        .s-card:hover i, 
+        .s-card:hover h3, 
+        .s-card:hover p, 
+        .s-card:hover .learn-more {
+            color: var(--white);
+        }
+
+        .s-card:hover .learn-more i {
+            transform: translateX(5px);
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        /* Expertise Banner (Top part of screenshot) */
+        .expertise-banner {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+            color: var(--white);
+            margin-bottom: 80px;
+            border-radius: 40px;
+            position: relative;
+        }
+
+        .expertise-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .expertise-text h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .s-grid { grid-template-columns: repeat(2, 1fr); }
+            .expertise-content { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .s-grid { grid-template-columns: 1fr; }
+            .services-page-header h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar solid">
+        <div class="nav-container">
+            <a href="index.html" class="brand-wrapper">
+                <span class="brand-mark" aria-hidden="true">
+                    <img src="logo-zdk-transparent.png" alt="" class="brand-img brand-img-light">
+                    <img src="logo-zdk-premium-dark.png" alt="" class="brand-img brand-img-dark">
+                </span>
+                <div class="brand-divider"></div>
+                <div class="brand-text-wrapper">
+                    <span class="brand-title">ZAYD INTERIOR</span>
+                    <span class="brand-subtext">by Zayd Darma Kreasi</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="supplier.html">Supplier</a></li>
+                <li><a href="client.html">Client</a></li>
+                <li class="social-nav">
+                    <a href="https://www.instagram.com/zdkinteriordesign/" target="_blank" rel="noreferrer" class="social-icon-link" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon-link is-placeholder" aria-label="LinkedIn coming soon" title="LinkedIn coming soon">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon-link is-placeholder" aria-label="Facebook coming soon" title="Facebook coming soon">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li><a href="#footer" class="contact-btn">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HEADER SECTION -->
+    <header class="services-page-header">
+        <div class="container">
+            <span class="tagline reveal">Service We Offers</span>
+            <h1 class="reveal">Explore Our Comprehensive Range Of Interior Services Designed To Elevate Your Spaces.</h1>
+        </div>
+    </header>
+
+    <!-- MAIN SERVICES GRID -->
+    <section class="services-grid-container">
+        <div class="container">
+            
+            <!-- Expertise Banner (Inspirasi dari bagian atas screenshot) -->
+            <div class="expertise-banner reveal">
+                <div class="container">
+                    <div class="expertise-content">
+                        <div class="expertise-text">
+                            <span class="tagline" style="color: #fff; opacity: 0.7;">DISCOVER THE ART</span>
+                            <h2>Our Expertise: Crafting Results-Driven Interiors.</h2>
+                            <p>Kami menggabungkan fungsionalitas dan estetika untuk menciptakan lingkungan yang tidak hanya cantik dipandang, tetapi juga meningkatkan kualitas hidup penghuninya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid 3 Kolom (Inspirasi dari bagian bawah screenshot) -->
+            <div class="s-grid">
+                <!-- 1. Desain Interior -->
+                <div class="s-card reveal">
+                    <div>
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <h3>Interior & Exterior Design</h3>
+                        <p>Merancang ruang yang unik dan memikat. Meliputi kitchen set, room set, hingga penataan ruang toko dan kantor.</p>
+                    </div>
+                    <a href="#footer" class="learn-more">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 2. Pembuatan Furniture -->
+                <div class="s-card reveal">
+                    <div>
+                        <i class="fa-solid fa-couch"></i>
+                        <h3>Pembuatan Furniture</h3>
+                        <p>Furnitur kustom berkualitas tinggi. Lemari, meja, kursi, dan rak yang didesain khusus sesuai preferensi Anda.</p>
+                    </div>
+                    <a href="#footer" class="learn-more">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 3. Pembangunan Interior -->
+                <div class="s-card reveal">
+                    <div>
+                        <i class="fa-solid fa-hammer"></i>
+                        <h3>Pembangunan Interior</h3>
+                        <p>Tim konstruksi kami siap mengubah desain 3D menjadi kenyataan dengan pengerjaan yang rapi dan tepat waktu.</p>
+                    </div>
+                    <a href="#footer" class="learn-more">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 4. Pembangunan Eksterior -->
+                <div class="s-card reveal">
+                    <div>
+                        <i class="fa-solid fa-house-chimney"></i>
+                        <h3>Pembangunan Eksterior</h3>
+                        <p>Memperindah lingkungan luar rumah seperti taman, teras, hingga pergola yang tahan cuaca dan estetis.</p>
+                    </div>
+                    <a href="#footer" class="learn-more">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 5. Jasa Arsitek -->
+                <div class="s-card reveal">
+                    <div>
+                        <i class="fa-solid fa-compass-drafting"></i>
+                        <h3>Jasa Arsitek</h3>
+                        <p>Perencanaan tata letak, gambar struktur, dan konsultasi desain untuk bangunan yang efisien, aman, dan indah.</p>
+                    </div>
+                    <a href="#footer" class="learn-more">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 6. Renovasi -->
+                <div class="s-card reveal">
+                    <div>
+                        <i class="fa-solid fa-trowel-bricks"></i>
+                        <h3>Luxury Renovasi</h3>
+                        <p>Layanan perbaikan atau perubahan bangunan lama menjadi hunian modern dengan fungsionalitas yang lebih baik.</p>
+                    </div>
+                    <a href="#footer" class="learn-more">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reuse Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="contact-header reveal">
+                <span class="subtitle">KONTAK INFORMASI</span>
+                <h2>"Quality Product, Honest Service, Great Value"</h2>
+            </div>
+
+            <div class="contact-info-grid reveal">
+                <div class="info-card">
+                    <i data-lucide="map-pin"></i>
+                    <h4>Main Office</h4>
+                    <p>Mediterania Regency Cikunir Blok C104–105, Bekasi Selatan</p>
+                </div>
+                <div class="info-card">
+                    <i data-lucide="building"></i>
+                    <h4>Rep. Office</h4>
+                    <p>Jl. Jempang BII/13, Bendungan Hilir, Jakarta Pusat</p>
+                </div>
+                <div class="info-card">
+                    <i data-lucide="factory"></i>
+                    <h4>Workshop</h4>
+                    <p>Jl. Al-Husnah No.89, Jatikramat, Jatiasih Bekasi</p>
+                </div>
+                <div class="info-card">
+                    <i data-lucide="phone"></i>
+                    <h4>WhatsApp</h4>
+                    <p>+62 813-8032-2095</p>
+                    <a href="https://wa.me/6281380322095" class="info-link" target="_blank">Hubungi Kami</a>
+                </div>
+                <div class="info-card">
+                    <i data-lucide="instagram"></i>
+                    <h4>Instagram</h4>
+                    <p>@zdkinteriordesign</p>
+                    <a href="https://www.instagram.com/zdkinteriordesign/" target="_blank" class="info-link">Follow Portfolio</a>
+                </div>
+            </div>
+
+            <div class="footer-main-grid">
+                <!-- Contact Form -->
+                <div class="footer-form reveal">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <input type="text" placeholder="Full Name" required>
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <textarea placeholder="Message" rows="5" required></textarea>
+                        <button type="submit" class="btn-primary">Send Inquiry</button>
+                    </form>
+                </div>
+
+                <!-- Map -->
+                <div class="footer-map reveal" id="map-frame">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d991.4939442879167!2d106.95720108638587!3d-6.266915942845864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sid!2sid!4v1776066994315!5m2!1sid!2sid" 
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <a href="index.html" class="brand-wrapper footer-brand">
+                        <span class="brand-mark" aria-hidden="true">
+                            <img src="logo-zdk-transparent.png" alt="" class="brand-img brand-img-light">
+                            <img src="logo-zdk-premium-dark.png" alt="" class="brand-img brand-img-dark">
+                        </span>
+                        <div class="brand-divider"></div>
+                        <div class="brand-text-wrapper">
+                            <span class="brand-title">ZAYD INTERIOR</span>
+                            <span class="brand-subtext">by Zayd Darma Kreasi</span>
+                        </div>
+                    </a>
+                    <p>Interior & Exterior Craftsmanship</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/zdkinteriordesign/" target="_blank" rel="noreferrer" class="social-badge-link">
+                            <span class="social-badge-icon"><i class="fa-brands fa-instagram"></i></span>
+                            <span class="social-badge-copy">
+                                <span class="social-platform">Instagram</span>
+                                <span class="social-handle">@zdkinteriordesign</span>
+                            </span>
+                        </a>
+                        <a href="#" class="social-badge-link is-placeholder" aria-label="LinkedIn coming soon" title="LinkedIn coming soon">
+                            <span class="social-badge-icon"><i class="fa-brands fa-linkedin-in"></i></span>
+                            <span class="social-badge-copy">
+                                <span class="social-platform">LinkedIn</span>
+                                <span class="social-handle">Coming soon</span>
+                            </span>
+                        </a>
+                        <a href="#" class="social-badge-link is-placeholder" aria-label="Facebook coming soon" title="Facebook coming soon">
+                            <span class="social-badge-icon"><i class="fa-brands fa-facebook-f"></i></span>
+                            <span class="social-badge-copy">
+                                <span class="social-platform">Facebook</span>
+                                <span class="social-handle">Coming soon</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <p>&copy; 2025 Zayd Interior. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
